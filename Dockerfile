@@ -7,4 +7,7 @@ COPY . /app
 # Install nano text editor
 RUN apt-get update && apt-get install -y nano
 
+# Install git
+RUN apt-get update && apt-get install -y git
+
 CMD ["/bin/bash"]
