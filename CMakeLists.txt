@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.28)
-project(CUDA_CEOs)
+cmake_minimum_required(VERSION 3.16)
+project(CUDA-CEOs)
 
 set(CMAKE_CXX_STANDARD 23)
 
@@ -12,4 +12,20 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(CUDA_CEOs main.cpp)
+enable_testing()
+
+add_executable(
+        hello_test
+        hello_test.cc
+)
+target_link_libraries(
+        hello_test
+        GTest::gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(hello_test)
+
+add_test(NAME hello_test COMMAND hello_test)
+
+add_executable(CUDA-CEOs main.cpp)
