@@ -1,7 +1,0 @@
-{
-  dockerFile: "Dockerfile",
-  runArgs: ["--gpus", "all", "--runtime=nvidia"],
-  settings: {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  }
-}
